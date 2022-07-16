@@ -98,11 +98,12 @@ body {
   margin-inline: auto;
   padding-inline: 2rem;
 }
-
+/* utility card */
 .stacked {
   display: grid;
 }
-
+/*  select any direct child of that card content*/
+/* its going to place everthing on top of each other  */
 .stacked > * {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -111,19 +112,36 @@ body {
 .product-grid {
   display: grid;
   gap: 0.125rem;
+  /* auto-fit minmax for the smallest screen size*/
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 
 .card {
+  /* aspect-rato:1 / 1 means the width and the height are the same */
+  /* aspect-ratio: 1 / 1.5;    would be is width is 1, and height is 1.5 times taller*/
   aspect-ratio: 1 / 1.5;
-  /* border: 3px solid hotpink; */
+  border: 3px solid hotpink;
 }
-
+/* Video at 15:10 shows how it breaks on DataAnalysis landing page */
 .card__content {
   background: white;
+  /* Keyword values */
+/* align-self: auto;
+align-self: normal; */
+
+/* Positional alignment */
+/* align-self does not take left and right values */
+/* align-self: center; Put the item around the center */
+ /* align-self: start; /* Put the item at the start */
+/*align-self: end; /* Put the item at the end */
+/*align-self: self-start; /* Align the item flush at the start */
+/*align-self: self-end; /* Align the item flush at the end */
+/*align-self: flex-start; /* Put the flex item at the start */
+/*align-self: flex-end; /* Put the flex item at the end */
   align-self: end;
   margin: 0.5rem 0.5rem 2rem;
   padding: 0.5rem;
+  /* 0 is left right 0.25rem is up and down */
   box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.1);
 }
 
@@ -140,6 +158,7 @@ body {
 .card__img {
   width: 100%;
   aspect-ratio: 1 / 1.25;
+  /* you can also use object-fit: center center; */
   object-fit: cover;
 }
 
@@ -149,10 +168,12 @@ body {
   }
 
   .card.featured {
+    /* takes up all empty space going up and down */
     grid-row: span 2;
+    /* takes up all empty space going left and right */
     grid-column: span 2;
   }
-
+/*  */
   .card.featured .card__img {
     aspect-ratio: 1 / 1.25;
   }
